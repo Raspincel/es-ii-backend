@@ -1,6 +1,7 @@
 # syntax=docker/dockerfile:1
 
 FROM golang:latest
+ENV HOST 0.0.0.0
 
 RUN apt-get update && \
     apt-get upgrade -y && \
@@ -17,7 +18,7 @@ RUN go get -u github.com/golang/dep/cmd/dep \
 WORKDIR ./src/github.com/raspincel/es-ii-backend
 RUN cp /go/bin/dep ./
 COPY internal ./
-COPY .env ./
+
 RUN go get -u github.com/golang/dep/cmd/dep
 RUN ./dep init
 COPY go.mod go.sum ./
