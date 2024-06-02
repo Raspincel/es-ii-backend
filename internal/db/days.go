@@ -9,7 +9,7 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/raspincel/es-ii-backend/utils"
+	"github.com/raspincel/es-ii-backend/internal/utils"
 )
 
 func GetDay(client *http.Client, day string) []utils.Theme {

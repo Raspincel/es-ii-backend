@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/raspincel/es-ii-backend/utils"
+	"github.com/raspincel/es-ii-backend/internal/utils"
 	openai "github.com/sashabaranov/go-openai"
 )
 
