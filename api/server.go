@@ -3,6 +3,7 @@ package api
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 	"net/http"
 	"strings"
 	"time"
@@ -27,10 +28,11 @@ func StartServer() {
 	mux.HandleFunc("GET /range", getRange)
 	mux.HandleFunc("GET /range/validate/{date}", isDateInRange)
 
-	err := http.ListenAndServe("localhost:3000", mux)
+	port := utils.GetEnv("PORT")
+	err := http.ListenAndServe(":"+port, mux)
 
 	if err != nil {
-		println(err.Error())
+		log.Fatal(err)
 	}
 }
 

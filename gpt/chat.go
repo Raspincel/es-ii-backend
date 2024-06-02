@@ -11,7 +11,7 @@ import (
 var client *openai.Client
 
 func init() {
-	apiKey := utils.GetEnv("API_KEY")
+	apiKey := utils.GetEnv("OPENAI_API_KEY")
 	client = openai.NewClient(apiKey)
 }
 
