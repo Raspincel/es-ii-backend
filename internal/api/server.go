@@ -37,6 +37,8 @@ func StartServer() {
 }
 
 func getDate(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+
 	day := r.URL.Path[strings.LastIndex(r.URL.Path, "/"):]
 	day = strings.Replace(day, "/", "", 1)
 
@@ -72,6 +74,8 @@ func getDate(w http.ResponseWriter, r *http.Request) {
 }
 
 func getRange(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+
 	sixMonthsAgo := utils.GetSixMonthsAgo()
 	firstYear := sixMonthsAgo.Year()
 	firstMonth := int(sixMonthsAgo.Month())
@@ -93,6 +97,8 @@ func getRange(w http.ResponseWriter, r *http.Request) {
 }
 
 func isDateInRange(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+
 	unformattedDay := r.URL.Path[strings.LastIndex(r.URL.Path, "/"):]
 	unformattedDay = strings.Replace(unformattedDay, "/", "", 1)
 
