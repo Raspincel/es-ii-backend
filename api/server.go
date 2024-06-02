@@ -8,9 +8,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Raspincel/es-ii-backend/db"
-	"github.com/Raspincel/es-ii-backend/gpt"
-	"github.com/Raspincel/es-ii-backend/utils"
+	"github.com/raspincel/es-ii-backend/db"
+	"github.com/raspincel/es-ii-backend/gpt"
+	"github.com/raspincel/es-ii-backend/utils"
 )
 
 var client *http.Client

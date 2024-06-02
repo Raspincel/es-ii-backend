@@ -1,4 +1,4 @@
-module github.com/Raspincel/es-ii-backend
+module github.com/raspincel/es-ii-backend
 
 go 1.22.2
 
