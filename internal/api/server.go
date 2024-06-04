@@ -28,6 +28,12 @@ func StartServer() {
 	mux.HandleFunc("GET /range", getRange)
 	mux.HandleFunc("GET /range/validate/{date}", isDateInRange)
 
+	mux.HandleFunc("POST /", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Access-Control-Allow-Origin", "*")
+		fmt.Println("Hello, World!")
+		w.Write([]byte("Hello, World!"))
+	})
+
 	port := utils.GetEnv("PORT")
 	err := http.ListenAndServe(":"+port, mux)
 
