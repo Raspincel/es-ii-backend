@@ -20,8 +20,6 @@ func init() {
 }
 
 func StartServer() {
-	println("Running on port 3000")
-
 	mux := http.NewServeMux()
 
 	mux.HandleFunc("GET /day/{date}", getDate)
@@ -29,7 +27,8 @@ func StartServer() {
 	mux.HandleFunc("GET /range/validate/{date}", isDateInRange)
 
 	port := utils.GetEnv("PORT")
-	err := http.ListenAndServe(":"+port, mux)
+	fmt.Println("Running on port " + port)
+	err := http.ListenAndServe(":8080", mux)
 
 	if err != nil {
 		log.Fatal(err)
