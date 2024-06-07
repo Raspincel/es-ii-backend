@@ -55,6 +55,7 @@ func getDate(w http.ResponseWriter, r *http.Request) {
 	for themes == nil {
 		if attempts == 3 {
 			w.Write([]byte("Error getting valid themes"))
+			return
 		}
 
 		content := gpt.RequestGroups()
