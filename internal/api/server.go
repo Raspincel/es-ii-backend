@@ -49,7 +49,7 @@ func getDate(w http.ResponseWriter, r *http.Request) {
 	}
 
 	themes := db.GetDay(client, date)
-
+	fmt.Println("Themes from db", themes)
 	attempts := 0
 
 	for themes == nil {
@@ -60,8 +60,8 @@ func getDate(w http.ResponseWriter, r *http.Request) {
 		content := gpt.RequestGroups()
 
 		if content == "" {
-			w.Write([]byte("Error getting valid themes"))
-			return
+			attempts++
+			continue
 		}
 
 		themes = utils.ParseGroups(content)
