@@ -42,7 +42,12 @@ func getDate(w http.ResponseWriter, r *http.Request) {
 	day := r.URL.Path[strings.LastIndex(r.URL.Path, "/"):]
 	day = strings.Replace(day, "/", "", 1)
 
-	date, _, _, _ := utils.ParseDate(day)
+	date, err, _, _ := utils.ParseDate(day)
+
+	if err == "" {
+		w.Write([]byte("Invalid date format (yyyy-mm-dd)"))
+		return
+	}
 
 	themes := db.GetDay(client, date)
 
