@@ -58,6 +58,12 @@ func getDate(w http.ResponseWriter, r *http.Request) {
 		}
 
 		content := gpt.RequestGroups()
+
+		if content == "" {
+			w.Write([]byte("Error getting valid themes"))
+			return
+		}
+
 		themes = utils.ParseGroups(content)
 
 		if themes != nil {
